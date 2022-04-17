@@ -1,21 +1,42 @@
 const generateEmployees = (team) => {
   team.map((teamRole) => {
     const role = teamRole.getRole();
-    console.log(role);
+    switch (role) {
+      case "manager":
+        return generateManager(teamRole);
+        break;
+      case "engineer":
+        return generateEngineer(teamRole);
+        break;
+      case "intern":
+        return generateIntern(teamRole);
+        break;
     }
-    return `
-      <div>
-        <h3>JONATHAN</h3>
-      </div>
-    `;
   });
 };
 
-const generateManager = (team) => {};
+const generateManager = (role) => {
+  console.log(role.name);
+  console.log(role.id);
+  console.log(role.email);
+  console.log(role.officeNumber);
+};
+
+const generateEngineer = (role) => {
+  console.log(role.name);
+  console.log(role.id);
+  console.log(role.email);
+  console.log(role.github);
+};
+
+const generateIntern = (role) => {
+  console.log(role.name);
+  console.log(role.id);
+  console.log(role.email);
+  console.log(role.school);
+};
 
 module.exports = (team) => {
-  //   console.log(team);
-  //   const manager = team.splice(0, 1);
   return `
     <!DOCTYPE html>
     <html lang="en">
