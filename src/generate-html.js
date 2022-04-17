@@ -1,15 +1,21 @@
 const generateEmployees = (team) => {
-  const employeeArr = team.map((employee) => {
-    // console.log(employee.name);
-    return `<section>
-            <h3>built with: love</h3>
-            </section>
-            `;
+  team.map((teamRole) => {
+    const role = teamRole.getRole();
+    console.log(role);
+    }
+    return `
+      <div>
+        <h3>JONATHAN</h3>
+      </div>
+    `;
   });
 };
 
+const generateManager = (team) => {};
+
 module.exports = (team) => {
-  const manager = team.splice(0, 1);
+  //   console.log(team);
+  //   const manager = team.splice(0, 1);
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -23,12 +29,6 @@ module.exports = (team) => {
   
     <body>
     <main>
-      <h1>${manager[0].name}</h1>
-      <h2>Employee ID: ${manager[0].id}</h2>
-      <h2><a href="mailto: ${manager[0].email}" "target=_blank">Email: ${
-    manager[0].email
-  }</a></h2>
-      <h2>Office Number: ${manager[0].officeNumber}</h2>
       ${generateEmployees(team)}
       </main>
     </body>
