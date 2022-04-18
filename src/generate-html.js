@@ -20,7 +20,7 @@ const generateEmployees = (team) => {
 
 // Creates Manager column
 const generateManager = (role) => {
-  console.log(role.name, role.id, role.email, role.officeNumber);
+  // console.log(role.name, role.id, role.email, role.officeNumber);
   return `
   <div class="column is-full has-text-centered">
   <div class= "media-content">
@@ -36,7 +36,7 @@ const generateManager = (role) => {
 
 // Creates Engineer columns
 const generateEngineer = (role) => {
-  console.log(role.name, role.id, role.email, role.github);
+  // console.log(role.name, role.id, role.email, role.github);
   return `
   <div class="column has-text-centered">
   <div class= "media-content">
@@ -52,7 +52,7 @@ const generateEngineer = (role) => {
 
 // Creates Intern columns
 const generateIntern = (role) => {
-  console.log(role.name, role.id, role.email, role.school);
+  // console.log(role.name, role.id, role.email, role.school);
   return `
   <div class="column has-text-centered">
   <div class= "media-content">
