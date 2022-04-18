@@ -1,3 +1,4 @@
+// The require blah blah
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./src/generate-html");
@@ -6,30 +7,32 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+// Employees array
 const team = [];
 
+// Manager questions
 const createManager = () => {
   return inquirer
     .prompt([
       {
         type: "input",
         name: "name",
-        message: "What is the manager's name?",
+        message: "Would you kindly provide the manager's name?",
       },
       {
         type: "number",
         name: "id",
-        message: "What is the manager's id number?",
+        message: "Would you kindly provide the manager's id number?",
       },
       {
         type: "input",
         name: "email",
-        message: "What is the manager's email address?",
+        message: "Would you kindly provide the manager's email address?",
       },
       {
         type: "number",
         name: "officeNum",
-        message: "What is the office number?",
+        message: "Would you kindly provide the office number?",
       },
     ])
     .then((response) => {
@@ -44,28 +47,29 @@ const createManager = () => {
     });
 };
 
+// Engineer questions
 const addEngineer = () => {
   return inquirer
     .prompt([
       {
         type: "input",
         name: "name",
-        message: "What is the engineer's name?",
+        message: "Would you kindly provide the engineer's name?",
       },
       {
         type: "number",
         name: "id",
-        message: "What is the engineer's id number?",
+        message: "Would you kindly provide the engineer's id number?",
       },
       {
         type: "input",
         name: "email",
-        message: "What is the engineer's email address?",
+        message: "Would you kindly provide the engineer's email address?",
       },
       {
         type: "input",
         name: "github",
-        message: "What is the engineer's github username?",
+        message: "Would you kindly provide the engineer's github username?",
       },
     ])
     .then((response) => {
@@ -80,28 +84,29 @@ const addEngineer = () => {
     });
 };
 
+// Intern questions
 const addIntern = () => {
   return inquirer
     .prompt([
       {
         type: "input",
         name: "name",
-        message: "What is the intern's name?",
+        message: "Would you kindly provide the intern's name?",
       },
       {
         type: "number",
         name: "id",
-        message: "What is the intern's id number?",
+        message: "Would you kindly provide the intern's id number?",
       },
       {
         type: "input",
         name: "email",
-        message: "What is the intern's email address?",
+        message: "Would you kindly provide the intern's email address?",
       },
       {
         type: "input",
         name: "school",
-        message: "What is the intern's school?",
+        message: "Would you kindly provide the intern's school?",
       },
     ])
     .then((response) => {
@@ -116,6 +121,7 @@ const addIntern = () => {
     });
 };
 
+// prints team to HTML
 const printTeam = () => {
   const pageHTML = generateHTML(team);
   fs.writeFile("./dist/index.html", pageHTML, (err) => {
@@ -123,13 +129,15 @@ const printTeam = () => {
   });
 };
 
+// prompts between engineer and intern
 const createTeam = () => {
   return inquirer
     .prompt({
       type: "list",
       name: "nextEmp",
-      message: "What type of employee would you like to add?",
-      choices: ["Engineer", "Intern", "Finish"],
+      message:
+        "Would you kindly provide the type of employee you would like to add?",
+      choices: ["Engineer", "Intern", "Finish and build"],
     })
     .then((response) => {
       switch (response.nextEmp) {
@@ -139,11 +147,11 @@ const createTeam = () => {
         case "Intern":
           addIntern();
           break;
-        case "Finish":
+        case "Finish and build":
           printTeam();
           break;
       }
     });
 };
-
+// Starts program
 createManager();
